@@ -1,4 +1,4 @@
-import Home from './pages/Home';
+import Home from './screens/Home';
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
@@ -11,6 +11,9 @@ export default function App() {
     nunito: require('./assets/fonts/Nunito/static/Nunito-Regular.ttf'),
   });
 
+  // •	The splash screen is the initial screen that users see when they launch an app. It typically shows a logo or branding while the app is loading.
+  // •	By default, the splash screen may disappear too early, before the fonts or other resources are fully loaded, which can lead to a jarring experience if the UI suddenly changes or displays incorrectly.
+  // •	To avoid this, the code waits until the fonts are fully loaded before hiding the splash screen and rendering the main UI.
   useEffect(() => {
     async function prepare() {
       await SplashScreen.preventAutoHideAsync();
