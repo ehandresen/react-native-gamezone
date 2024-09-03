@@ -8,6 +8,7 @@ import Home from './screens/Home';
 import About from './screens/About';
 
 import { useEffect } from 'react';
+import ReviewDetails from './screens/ReviewDetails';
 
 const Stack = createNativeStackNavigator();
 
@@ -38,7 +39,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="About" component={About} />
+        <Stack.Screen name="Review" component={ReviewDetails} />
       </Stack.Navigator>
     </NavigationContainer>
   );
