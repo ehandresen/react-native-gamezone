@@ -11,6 +11,7 @@ const ReviewDetails = ({ navigation, route }: any) => {
       <Text>{game.title}</Text>
       <Text>{game.body}</Text>
       <Text>rating: {game.rating}</Text>
+      <Button title="go back" onPress={() => navigation.goBack()} />
     </View>
   );
 };

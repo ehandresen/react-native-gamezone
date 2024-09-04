@@ -1,7 +1,9 @@
+import DrawerScreen from './screens/DrawerScreen';
 import { useEffect } from 'react';
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import StackScreen from './screens/StackScreen';
+import { View } from 'react-native';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -26,5 +28,5 @@ export default function App() {
     SplashScreen.hideAsync();
   }
 
-  return <StackScreen />;
+  return <DrawerScreen />;
 }
