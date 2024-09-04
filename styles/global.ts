@@ -3,8 +3,8 @@ import { StyleSheet } from 'react-native';
 export const globalStyles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 50,
-    paddingLeft: 20,
+    paddingTop: 20,
+    paddingHorizontal: 10,
   },
   poppins: {
     fontFamily: 'poppins',

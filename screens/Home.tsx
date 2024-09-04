@@ -1,6 +1,7 @@
 import { FlatList, TouchableOpacity, Text, View } from 'react-native';
 import { globalStyles } from '../styles/global';
 import { useState } from 'react';
+import Card from '../shared/Card';
 
 export type Game = {
   title: string;
@@ -40,7 +41,9 @@ const Home = ({ navigation }: any) => {
           <TouchableOpacity
             onPress={() => navigation.navigate('ReviewDetails', { item })}
           >
-            <Text style={globalStyles.poppins}>{item.title}</Text>
+            <Card>
+              <Text style={globalStyles.poppins}>{item.title}</Text>
+            </Card>
           </TouchableOpacity>
         )}
       />
