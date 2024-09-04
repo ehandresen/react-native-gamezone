@@ -1,16 +1,7 @@
+import { useEffect } from 'react';
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
-
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
-import Home from './screens/Home';
-import About from './screens/About';
-
-import { useEffect } from 'react';
-import ReviewDetails from './screens/ReviewDetails';
-
-const Stack = createNativeStackNavigator();
+import StackScreen from './screens/StackScreen';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -35,12 +26,5 @@ export default function App() {
     SplashScreen.hideAsync();
   }
 
-  return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="Review" component={ReviewDetails} />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
+  return <StackScreen />;
 }

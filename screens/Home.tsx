@@ -1,15 +1,48 @@
-import { Button, Text, View } from 'react-native';
+import { FlatList, TouchableOpacity, Text, View } from 'react-native';
 import { globalStyles } from '../styles/global';
-import { useNavigation } from '@react-navigation/native';
+import { useState } from 'react';
 
-// Each screen component in your app is provided with the navigation prop automatically. The prop contains various convenience functions that dispatch navigation actions.
+export type Game = {
+  title: string;
+  rating: number;
+  body: string;
+  key: string;
+};
+
+// The navigation prop is available to all screen components (components defined as screens in route configuration and rendered by React Navigation as a route).
 const Home = ({ navigation }: any) => {
+  const [reviews, setReviews] = useState<Game[]>([
+    {
+      title: 'Zelda, Breath of Fresh Air',
+      rating: 5,
+      body: 'lorem ipsum',
+      key: '1',
+    },
+    {
+      title: 'Gotta Catch Them All (again)',
+      rating: 4,
+      body: 'lorem ipsum',
+      key: '2',
+    },
+    {
+      title: 'Not So "Final" Fantasy',
+      rating: 3,
+      body: 'lorem ipsum',
+      key: '3',
+    },
+  ]);
+
   return (
     <View style={globalStyles.container}>
-      <Text style={globalStyles.poppins}>home screen</Text>
-      <Button
-        title="go to review"
-        onPress={() => navigation.navigate('Review')}
+      <FlatList
+        data={reviews}
+        renderItem={({ item }) => (
+          <TouchableOpacity
+            onPress={() => navigation.navigate('ReviewDetails', { item })}
+          >
+            <Text style={globalStyles.poppins}>{item.title}</Text>
+          </TouchableOpacity>
+        )}
       />
     </View>
   );
