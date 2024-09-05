@@ -15,11 +15,7 @@ const StackScreen = () => {
         },
       }}
     >
-      <Stack.Screen
-        name="Home"
-        component={Home}
-        options={{ title: 'GameZone' }}
-      />
+      <Stack.Screen name="Home" component={Home} />
       <Stack.Screen
         name="ReviewDetails"
         component={ReviewDetails}

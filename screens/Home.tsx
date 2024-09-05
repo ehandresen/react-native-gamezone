@@ -1,7 +1,10 @@
-import { FlatList, TouchableOpacity, Text, View } from 'react-native';
+import { FlatList, TouchableOpacity, Text, View, Modal } from 'react-native';
 import { globalStyles } from '../styles/global';
 import { useState } from 'react';
 import Card from '../shared/Card';
+import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
+import AntDesign from '@expo/vector-icons/AntDesign';
+import Form from './Form';
 
 export type Game = {
   title: string;
@@ -12,6 +15,7 @@ export type Game = {
 
 // The navigation prop is available to all screen components (components defined as screens in route configuration and rendered by React Navigation as a route).
 const Home = ({ navigation }: any) => {
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [reviews, setReviews] = useState<Game[]>([
     {
       title: 'Zelda, Breath of Fresh Air',
@@ -35,6 +39,31 @@ const Home = ({ navigation }: any) => {
 
   return (
     <View style={globalStyles.container}>
+      <Modal
+        visible={isModalOpen}
+        animationType="slide"
+        presentationStyle="pageSheet"
+        onRequestClose={() => setIsModalOpen(false)}
+      >
+        <View style={globalStyles.modalContent}>
+          <AntDesign
+            name="close"
+            size={24}
+            color="black"
+            onPress={() => setIsModalOpen(false)}
+            style={globalStyles.modalToggle}
+          />
+          <Form />
+        </View>
+      </Modal>
+
+      <FontAwesome6
+        name="add"
+        size={24}
+        onPress={() => setIsModalOpen(true)}
+        style={globalStyles.modalToggle}
+      />
+
       <FlatList
         data={reviews}
         renderItem={({ item }) => (

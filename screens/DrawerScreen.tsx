@@ -25,9 +25,25 @@ const DrawerScreen = () => {
         <Drawer.Screen
           name="StackScreen"
           component={StackScreen}
-          options={{ title: 'GameZone' }}
+          options={{
+            title: 'GameZone',
+            drawerActiveTintColor: '#f4511e',
+            drawerContentStyle: {
+              backgroundColor: '#FFE3D6',
+            },
+          }}
         />
-        <Drawer.Screen name="About" component={About} />
+        <Drawer.Screen
+          name="About"
+          component={About}
+          options={{
+            title: 'About Us',
+            drawerActiveTintColor: '#f4511e',
+            drawerContentStyle: {
+              backgroundColor: '#FFE3D6',
+            },
+          }}
+        />
       </Drawer.Navigator>
     </NavigationContainer>
   );

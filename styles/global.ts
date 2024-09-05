@@ -19,4 +19,21 @@ export const globalStyles = StyleSheet.create({
     marginVertical: 8,
     lineHeight: 20,
   },
+  modalContent: {
+    marginTop: 50,
+    marginLeft: 20,
+    flex: 1,
+  },
+  modalToggle: {
+    marginBottom: 10,
+    padding: 10,
+    textAlign: 'center',
+  },
+  input: {
+    borderWidth: 1,
+    borderColor: '#ddd',
+    padding: 10,
+    fontSize: 18,
+    borderRadius: 6,
+  },
 });
