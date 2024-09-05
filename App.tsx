@@ -5,6 +5,8 @@ import * as SplashScreen from 'expo-splash-screen';
 import StackScreen from './screens/StackScreen';
 import { View } from 'react-native';
 
+// main app
+
 export default function App() {
   const [fontsLoaded] = useFonts({
     poppins: require('./assets/fonts/Poppins/Poppins-Regular.ttf'),
